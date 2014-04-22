@@ -2,22 +2,35 @@
 <html>
   <head>
     <title>{% block title %}Wine{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/screen.css' )}}" />
     {% block custom_css %}
     {% endblock %}
     {% block custom_js %}
     {% endblock %}
   </head>
-  <body>
-    {% include 'navigation.html' %}
+  <body class="{% block body_class %}{% endblock %}">
+    <div class="wrapper wrapper-navigation">
+      <div class="container container-navigation">
+        {% include 'navigation.html' %}
+      </div>
+    </div>
 
-    {% for message in get_flashed_messages() %}
+    <div class="wrapper wrapper-messages">
+      <div class="container container-messages">
+        {% for message in get_flashed_messages() %}
         <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
+          {{ message }}
         </div>
         {% endfor %}
+      </div>
+    </div>
 
-    {% block content %}
-    {% endblock %}
+    <div class="wrapper wrapper-content">
+      <div class="container container-content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
   </body>
 </html>

@@ -1,0 +1,16 @@
+// Layout Stuff
+
+.wrapper {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  padding: 20px 0;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  @media screen and (max-width: 700px) {
+    text-align: center;
+  }
+}
