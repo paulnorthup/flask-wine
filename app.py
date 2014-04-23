@@ -11,12 +11,11 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-
 # key for wtf forms
 app.config['SECRET_KEY'] = 'hard to guess string'
 #db config
 app.config['SQLALCHEMY_DATABASE_URI'] =\
-    'postgresql://paul:oracle@localhost/winecellar'
+    'dchjoizzovhmrt:tB2OLhseyz-NxPkrNxQXir5iWY@ec2-54-225-243-113.compute-1.amazonaws.com'
 #db options
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 #db var
