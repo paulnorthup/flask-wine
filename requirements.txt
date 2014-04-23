@@ -1,16 +1,10 @@
-Cheetah==2.4.4
-Django==1.5.5
 Flask==0.10
 Jinja2==2.7.2
 Markdown==2.3.1
 MarkupSafe==0.19
 Markups==0.4
 ReText==4.0.0
-South==0.8.2
-Twiggy==0.4.5
-Twisted==13.0.0
 Werkzeug==0.9.4
-argparse==1.2.1
 awscli==0.11.0
 bcdoc==0.4.2
 bitlyapi==0.1.1
