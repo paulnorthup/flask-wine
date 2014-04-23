@@ -5,9 +5,12 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 import os
 
+##########
+# Config #
+##########
 basedir = os.path.abspath(os.path.dirname(__file__))
-
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 # key for wtf forms
 app.config['SECRET_KEY'] = 'hard to guess string'
