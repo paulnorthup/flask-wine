@@ -1,3 +1,4 @@
 <ul class="navigation">
-  <li><a href="#">Some Link</a></li>
+  <li><a href="{{ url_for('wine_listing', _external=True) }}">Wine List</a></li>
+  <li><a href="{{ url_for('wine_add', _external=True) }}">Add Wine</a></li>
 </ul>

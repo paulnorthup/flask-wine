@@ -1,0 +1,14 @@
+.container-navigation {
+  ul li {
+    display: inline-block;
+    a {
+      text-decoration: none;
+      padding: 4px 4px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      &:hover {
+        border-color: #999;
+      }
+    }
+  }
+}

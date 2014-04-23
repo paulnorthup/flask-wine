@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body_class %}wine-listing{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Wine Cellar</h1>
+<p>These are your wines:</p>
+<ul>
+  {% for wine in wines: %}
+  <li>
+    <a href="{{ url_for('wine_id', id=wine.id) }}">
+      {{wine.name}}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

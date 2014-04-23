@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
+{% block body_class %}wine-add{% endblock %}
+
 {% block content %}
-<h1>Welcome to the Wine Cellar</h1>
 <p>Add a wine</p>
 <form method="POST">
   {{ form.name.label }} {{ form.name }} <br>
@@ -11,14 +12,5 @@
   {{ form.genre.label }} {{ form.genre }} <br>
 
   {{ form.submit }}
-<p>These are your wines:</p>
-<ul>
-  {% for wine in wines: %}
-  <li>
-    <a href="{{ url_for('wine_id', id=wine.id) }}">
-      {{wine.name}}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+</form>
 {% endblock %}

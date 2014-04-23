@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Ah yes, old {{id}}</h1>
-<p>This is wine number {{id}}.</p>
+{% for wine in wine %}
+<h1>Ah yes, old <b>{{wine.name}}</b></h1>
+<p> a fine wine from the <b>{{wine.vineyard}}</b> in <b>{{wine.country}}</b>.</p>
+
+<p>This <b>{{wine.genre}}</b> from <b>{{wine.year}}</b> was added to your cellar on (make a date thign here).
+
+{% endfor %}
 {% endblock %}

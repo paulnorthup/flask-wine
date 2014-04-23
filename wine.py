@@ -49,7 +49,7 @@ class Wine(db.Model):
 #########
 # Forms #
 #########
-class WineForm(Form):
+class wine_form(Form):
     name = StringField('Name of the wine?')
     year = StringField('Year the wine was bottled?')
     country = StringField('Country of origin?')
@@ -66,12 +66,25 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/wines', methods=['GET', 'POST'])
-def wines():
+@app.route('/wines', methods=['GET'])
+def wine_listing():
+    wines = Wine.query.all()
+    return render_template('wine_listing.html', wines=wines)
+
+
+@app.route('/wine/<int:id>')
+def wine_id(id):
+    wine = Wine.query.filter_by(id=id)
+    return render_template('wine.html', wine=wine)
+
+
+@app.route('/wine/add', methods=['GET', 'POST'])
+def wine_add():
     if request.method == 'GET':
+        form = wine_form()
         wines = Wine.query.all()
-        form = WineForm()
-        return render_template('wines.html', form=form, wines=wines)
+        return render_template('wine_add.html', form=form)
+
     if request.method == 'POST':
         w_name = request.form['name']
         w_year = request.form['year']
@@ -82,14 +95,8 @@ def wines():
         db.session.add(new_wine)
         db.session.commit()
         flash('Nice, a new bottle!')
-        form = WineForm()
         wines = Wine.query.all()
-        return render_template('wines.html', form=form, wines=wines)
-
-
-@app.route('/wine/<int:id>')
-def wine_id(id):
-    return render_template('wine.html', id=id)
+        return render_template('wine_listing.html', wines=wines)
 
 
 @app.route('/users')
